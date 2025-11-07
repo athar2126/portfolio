@@ -1,14 +1,17 @@
+import { Easing } from "motion"
+import { easeOut } from "motion"
+
 export const height = {
     initial: {
         height: 0
     },
-    enter: (i) => ({
+    enter: (i: number) => ({
         height: "100%",
-        transition: {duration: 0.5, delay: 0.05 * i, ease: [0.33, 1, 0.68, 1]}
+        transition: {duration: 0.5, delay: 0.05 * i, ease: [0.33, 1, 0.68, 1] as Easing}
     }),
-    exit: (i) => ({
+    exit: (i: number) => ({
         height: 0,
-        transition: {duration: 0.3, delay: 0.05 * i, ease: [0.33, 1, 0.68, 1]}
+        transition: {duration: 0.3, delay: 0.05 * i, ease: [0.33, 1, 0.68, 1] as Easing}
     })
 }
 
@@ -18,11 +21,11 @@ export const background = {
     },
     enter: {
         opacity: 0,
-        transition: {duration: 0.5, ease: [0.33, 1, 0.68, 1]}
+        transition: {duration: 0.5, ease: [0.33, 1, 0.68, 1] as Easing}
     },
     exit: {
         opacity: 0,
-        transition: {duration: 0.5, ease: [0.33, 1, 0.68, 1]}
+        transition: {duration: 0.5, ease: [0.33, 1, 0.68, 1] as Easing}
     }
 }
 
@@ -30,13 +33,13 @@ export const opacity = {
     initial: {
         opacity: 0
     },
-    enter: (i) => ({
+    enter: (i: number) => ({
         opacity: 1,
-        transition: {duration: 0.5, ease: [0.33, 1, 0.68, 1], delay: i}
+        transition: {duration: 0.5, ease: [0.33, 1, 0.68, 1] as Easing, delay: i}
     }),
     exit: {
         opacity: 0,
-        transition: {duration: 0.5, ease: [0.33, 1, 0.68, 1]}
+        transition: {duration: 0.5, ease: [0.33, 1, 0.68, 1] as Easing}
     }
 }
 
@@ -59,7 +62,7 @@ export const rotateX = {
         rotateX: 90,
         opacity: 0
     },
-    enter: (i) => ({
+    enter: (i: number) => ({
         rotateX: 0,
         opacity: 1,
         transition: {duration: 0.5, ease: [0.33, 1, 0.68, 1], delay: 0.3 + (i * 0.05)}
@@ -77,7 +80,7 @@ export const navLink = {
     show: {
         y: 0,
         transition: {
-            ease: 'easeOut',
+            ease: easeOut,
             delay: 0.6,
             duration: 0.4,
         }
@@ -85,7 +88,7 @@ export const navLink = {
     exit: {
         y: "-100%",
         transition: {
-            ease: 'easeOut',
+            ease: easeOut,
             duration: 0.4,
         }
     },

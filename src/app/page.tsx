@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 import { BackgroundGrid, DottedBackground } from "@/components/background"
 import TextOpacity from "@/components/TextOpacity";
 import Link from "next/link";
-import ImageTrail from '@/components/ImageTrail'
 import { TextReveal } from "@/components/ui/text-reveal"
 import Preloader from "@/components/preloader/Preloader";
 import Header from '@/components/header';

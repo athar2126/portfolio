@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Logo from '@/components/editable-svg/logo'
 import { useState } from 'react';
 
-export default function Burger({ openMenu }) {
+export default function Burger({ openMenu }: { openMenu: () => void }) {
 
   const [hovered, setHovered] = useState(false)
 

@@ -3,9 +3,14 @@ import TransitionLogo from "../editable-svg/logotransition";
 import { useEffect, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { gsap } from "gsap";
+import { ReactNode } from "react";
 import "./PageTransition.css";
 
-const PageTransition = ({ children }) => {
+interface PageTransitionProps {
+  children: ReactNode;
+}
+
+const PageTransition = ({ children }: PageTransitionProps) => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -62,20 +67,28 @@ const PageTransition = ({ children }) => {
     };
 
     const links = document.querySelectorAll('a[href^="/"]');
+    const linkHandlers: Array<(e: Event) => void> = [];
+
     links.forEach((link) => {
-      link.addEventListener("click", (e: any) => {
+      const handler = (e: Event) => {
         e.preventDefault();
-        const href = e.currentTarget.href;
+        const target = e.currentTarget as HTMLAnchorElement;
+        const href = target.href;
         const url = new URL(href).pathname;
         if (url !== pathname) {
           handleRouteChange(url);
         }
-      });
+      };
+      linkHandlers.push(handler);
+      link.addEventListener("click", handler);
     });
 
     return () => {
-      links.forEach((link) => {
-        link.removeEventListener("click", handleRouteChange);
+      links.forEach((link, i) => {
+        const handler = linkHandlers[i];
+        if (handler) {
+          link.removeEventListener("click", handler);
+        }
       });
     };
   }, [router, pathname]);

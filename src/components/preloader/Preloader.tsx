@@ -54,12 +54,13 @@ const Preloader = () => {
     tl.to(".loader .divider", {
       scaleY: "100%",
       duration: 1,
-      onComplete: () =>
+      onComplete: () => {
         gsap.to(".loader .divider", {
           opacity: 0,
           duration: 0.4,
           delay: 0.3,
-        }),
+        });
+      },
     });
 
     tl.to(".loader #word-1 h1", { y: "100%", duration: 1, delay: 0.3 });

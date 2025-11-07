@@ -24,7 +24,7 @@ const menu = [
   },
 ];
 
-export default function Menu({ closeMenu }) {
+export default function Menu({ closeMenu }: { closeMenu: () => void }) {
   return (
     <motion.div
       className="
