@@ -1,11 +1,11 @@
 export function BackgroundGrid() {
   return (
-    <div className="absolute inset-0 z-0 [background-image:linear-gradient(to_right,hsla(0,0%,58%,.3)_1px,transparent_1px),linear-gradient(to_bottom,hsla(0,0%,58%,.3)_1px,transparent_1px)] dark:[background-image:linear-gradient(to_right,theme(colors.zinc.700)_1px,transparent_1px),linear-gradient(to_bottom,theme(colors.zinc.700)_1px,transparent_1px)] [background-size:50.5px_50.5px]"
+    <div className="absolute inset-0 z-0 [background-image:linear-gradient(to_right,hsla(0,0%,58%,.15)_1px,transparent_1px),linear-gradient(to_bottom,hsla(0,0%,58%,.15)_1px,transparent_1px)] dark:[background-image:linear-gradient(to_right,theme(colors.zinc.700)_1px,transparent_1px),linear-gradient(to_bottom,theme(colors.zinc.700)_1px,transparent_1px)] [background-size:30px_30px] lg:[background-size:30px_30px]"
           style={{
             WebkitMaskImage:
-              "radial-gradient(ellipse 80% 60% at 50% 50%, #000 30%, transparent 70%)",
+              "linear-gradient(to top, transparent 25%, black 75%)",
             maskImage:
-              "radial-gradient(ellipse 80% 60% at 50% 50%, #000 30%, transparent 70%)",
+              "linear-gradient(to top, transparent 25%, black 75%)",
           }}>
            
     </div>

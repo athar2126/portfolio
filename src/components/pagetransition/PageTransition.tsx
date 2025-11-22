@@ -21,8 +21,9 @@ const PageTransition = ({ children }: PageTransitionProps) => {
   const blocksRef = useRef<HTMLDivElement[]>([]);
   const isTransitioning = useRef(false);
 
+  /** ========================= INIT ========================= */
   useEffect(() => {
-    /** GET SVG PATH REFERENCE */
+    /** GET SVG PATH REF */
     if (logoRef.current) {
       const p = logoRef.current.querySelector("path");
       if (p instanceof SVGPathElement) {
@@ -37,7 +38,7 @@ const PageTransition = ({ children }: PageTransitionProps) => {
       }
     }
 
-    /** CREATE BLOCKS SAFELY */
+    /** CREATE BLOCKS */
     const createBlocks = () => {
       if (!overlayRef.current) return;
 
@@ -47,7 +48,7 @@ const PageTransition = ({ children }: PageTransitionProps) => {
 
       blocksRef.current = [];
 
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 10; i++) {
         const block = document.createElement("div");
         block.className = "kotak";
         overlayRef.current.appendChild(block);
@@ -59,18 +60,19 @@ const PageTransition = ({ children }: PageTransitionProps) => {
     gsap.set(blocksRef.current, { scaleX: 0, transformOrigin: "left" });
     revealPage();
 
-    /** PATCH LOCAL NAVIGATION */
+    /** ROUTE PATCH */
     const handleRouteChange = (url: string) => {
       if (isTransitioning.current) return;
       isTransitioning.current = true;
       coverPage(url);
     };
 
+    /** BIND INTERNAL LINKS */
     const links = document.querySelectorAll('a[href^="/"]');
     const linkHandlers: Array<(e: Event) => void> = [];
 
     links.forEach((link) => {
-      const handler = (e: Event) => {
+      const clickHandler = (e: Event) => {
         e.preventDefault();
         const target = e.currentTarget as HTMLAnchorElement;
         const href = target.href;
@@ -79,9 +81,32 @@ const PageTransition = ({ children }: PageTransitionProps) => {
           handleRouteChange(url);
         }
       };
-      linkHandlers.push(handler);
-      link.addEventListener("click", handler);
+
+      linkHandlers.push(clickHandler);
+      link.addEventListener("click", clickHandler);
     });
+
+    /** RE-BIND FROM MENU */
+    const rebindHandler = () => {
+      const newLinks = document.querySelectorAll('a[href^="/"]');
+
+      newLinks.forEach((link) => {
+        const clickHandler = (e: Event) => {
+          e.preventDefault();
+          const target = e.currentTarget as HTMLAnchorElement;
+          const href = target.href;
+          const url = new URL(href).pathname;
+          if (url !== pathname) {
+            handleRouteChange(url);
+          }
+        };
+
+        linkHandlers.push(clickHandler);
+        link.addEventListener("click", clickHandler);
+      });
+    };
+
+    window.addEventListener("rebindLinks", rebindHandler);
 
     return () => {
       links.forEach((link, i) => {
@@ -90,10 +115,13 @@ const PageTransition = ({ children }: PageTransitionProps) => {
           link.removeEventListener("click", handler);
         }
       });
+
+      window.removeEventListener("rebindLinks", rebindHandler);
     };
   }, [router, pathname]);
 
-  /** COVER ANIMATION */
+
+  /** ========================= COVER ========================= */
   const coverPage = (url: string) => {
     const tl = gsap.timeline({
       onComplete: () => router.push(url),
@@ -133,7 +161,7 @@ const PageTransition = ({ children }: PageTransitionProps) => {
         .to(
           path,
           {
-            fill: "#fff",
+            fill: "#0D0E13",
             duration: 1,
             ease: "power2.out",
           },
@@ -148,7 +176,7 @@ const PageTransition = ({ children }: PageTransitionProps) => {
     });
   };
 
-  /** REVEAL ON PAGE LOAD */
+  /** ========================= REVEAL ========================= */
   const revealPage = () => {
     gsap.set(blocksRef.current, { scaleX: 1, transformOrigin: "right" });
 

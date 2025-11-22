@@ -1,4 +1,5 @@
 import { Icons } from "@/components/icons";
+import { style } from "motion/react-client";
 
 export const DATA = {
   navbar: [
@@ -47,9 +48,15 @@ export const DATA = {
 } as const;
 
 export const imageLogos = [
-  { src: "/img/tailwind.svg", alt: "Tailwind", href: "https://company1.com" },
-  { src: "/img/blender.svg", alt: "Blender", href: "https://company1.com" },
-  { src: "/img/nextjs.svg", alt: "NextJS", href: "https://company1.com" },
-  { src: "/img/framer.svg", alt: "Framer", href: "https://company1.com" },
-  { src: "/img/webflow.svg", alt: "Webflow", href: "https://company1.com" },
+  { src: "/img/tailwind.svg", alt: "Tailwind", href: "https://tailwindcss.com" },
+  { src: "/img/blender.svg", alt: "Blender", href: "https://blender.org" },
+  { src: "/img/nextjs.svg", alt: "NextJS", href: "https://nextjs.org" },
+  { src: "/img/framer.svg", alt: "Framer", href: "https://framer.com" },
+  { src: "/img/webflow.svg", alt: "Webflow", href: "https://webflow.com" },
 ];
+
+export const imageProjects = [
+  { src: "/img/project/breadlious.png", alt: "Breadlious", style: { borderRadius: '10px' } },
+  { src: "/img/project/cart.png", alt: "Cart", style: { borderRadius: '10px' } },
+  { src: "/img/project/loginpage.png", alt: "LoginPage", style: { borderRadius: '10px' } },
+]

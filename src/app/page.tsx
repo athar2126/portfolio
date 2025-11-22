@@ -3,10 +3,13 @@ import { Badge } from "@/components/ui/badge"
 import LogoLoop from '@/components/LogoLoop';
 import { imageLogos } from "@/data/datapfolio";
 import { Button } from "@/components/ui/button"
+import Projek from "@/components/page/projek";
+import { ExpandableScreen, ExpandableScreenContent, ExpandableScreenTrigger } from "@/components/ui/expandable-screen"
 import { BackgroundGrid, DottedBackground } from "@/components/background"
 import TextOpacity from "@/components/TextOpacity";
 import Link from "next/link";
 import { TextReveal } from "@/components/ui/text-reveal"
+import { RevealText } from "@/components/ui/reveal-text"
 import Preloader from "@/components/preloader/Preloader";
 import Header from '@/components/header';
 
@@ -15,7 +18,7 @@ export default function Home() {
     <div>
       <Preloader />
 
-      <Header />
+      
 
       <section className="min-h-screen w-full bg-white dark:bg-dark-background relative">
         <BackgroundGrid />
@@ -33,8 +36,8 @@ export default function Home() {
             <Badge variant="outline">Athar Revansyah</Badge>
           </div>
           <h1 className={[
-            'text-5xl', 
-            'text-black', 
+            'text-[33px] lg:text-5xl', 
+            'text-black',
             'text-center', 
             'leading-[0.9]', 
             'font-poppins', 
@@ -42,7 +45,7 @@ export default function Home() {
             ].join(' ')}>
               Build stunning digital<br />experiences.
           </h1>
-          <p className="text-[#7e7e7e] text-center font-poppins">
+          <p className="text-[#7e7e7e] text-[11px] text-center font-poppins lg:text-[16px]">
             I’m a designer and front-end developer passionate about<br />crafting clean, modern, and user-friendly interfaces.
           </p>
           <div className="flex gap-4">
@@ -58,24 +61,24 @@ export default function Home() {
                 ].join(' ')}>
                 Download CV
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className={[
-                'bg-white', 
-                'text-[#252525]', 
-                'rounded-full', 
-                'border-[#252525]', 
-                'w-35', 
-                'dark:border-white', 
-                'dark:bg-[#252525]', 
-                'dark:text-white'
-                ].join(' ')}>
-                  Projects
-            </Button>
-          </div>
+            
+            <ExpandableScreen
+              layoutId="unique-id"
+              triggerRadius="100px"
+              contentRadius="24px"
+              animationDuration={0.3}
+            >
+              <ExpandableScreenTrigger>
+                <button className="px-10 py-2 border border-[#252525] rounded-full cursor-pointer">
+                  Contacts
+                </button>
+              </ExpandableScreenTrigger>
 
-          <a href="/certificate">sertifikat</a>
+              <ExpandableScreenContent className="bg-primary">
+                <h1>contoh</h1>
+              </ExpandableScreenContent>
+            </ExpandableScreen>
+          </div>
         </div>
       </section>
 
@@ -95,33 +98,15 @@ export default function Home() {
       </div>
 
       <section className="min-h-screen w-full bg-white dark:bg-dark-background relative flex items-center justify-center text-center">
-        {/*<div style={{ height: '70vh', position: 'absolute', width: '100%', overflowX: 'hidden' }}>
-          <ImageTrail
-            items={[
-              'https://picsum.photos/id/287/300/300',
-              'https://picsum.photos/id/1001/300/300',
-              'https://picsum.photos/id/1025/300/300',
-              'https://picsum.photos/id/1026/300/300',
-              'https://picsum.photos/id/1027/300/300',
-              'https://picsum.photos/id/1028/300/300',
-              'https://picsum.photos/id/1029/300/300',
-              'https://picsum.photos/id/1030/300/300',
-              // ...
-            ]}
-            variant={2}
-          />
-        </div>*/}
-
-        <TextReveal className="font-playfair">Magic UI will change the way you design.</TextReveal>
+        <TextReveal>Magic UI will change the way you design.</TextReveal>
       </section>
+
+      <Projek />
       
-      {/*<section className="min-h-screen w-full bg-[#f9fafb] dark:bg-[#1a1a1a] relative flex items-center justify-center text-center">
-        <DottedBackground />
-        
-        <p>
-          ansfjanjkbefnjakbejakbfjbeajbslfbaliwblibsidbgkjebadbgjkeabjkbgue4ldbghjake3lb
-        </p>
-      </section>*/}
+      <section className="min-h-screen w-full bg-white dark:bg-dark-background relative flex items-center justify-center text-center">
+        <h1>ini section selanjutnya</h1>
+      </section>
+
     </div>
   );
 }

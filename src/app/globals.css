@@ -130,6 +130,22 @@
   }
 }
 
+@layer components {
+  .social-item {
+    @apply bg-[#FEFCFC] border border-[#DEDEDE] p-2.5 rounded-[14px] flex flex-row gap-1.5 items-center dark:bg-[#191919] dark:border-[#212121];
+  }
+
+  .icon-box {
+    @apply p-2 bg-[#E6E6E6] rounded-[10px] dark:bg-[#282828];
+  }
+
+  .social-text {
+    @apply text-[14px] text-[#666666] dark:text-[#999999] font-medium font-manrope;
+  }
+
+  .hide-scrollbar { scrollbar-width: 0px; scrollbar-color: transparent; } .hide-scrollbar::-webkit-scrollbar { display: none; } 
+}
+
 @theme {
   /* Light */
   --color-light-shades-1: #f7f8fb;
@@ -140,6 +156,7 @@
   --color-light-shades-6: #777d90;
   --color-light-shades-7: #525769;
   --color-light-shades-8: #2d313f;
+  --shadow-light-bento: 0 0 0 1px rgba(0, 0, 0, .03), 0 2px 4px rgba(0, 0, 0, .05), 0 12px 24px rgba(0,0,0,.05);
   /* Dark */
   --color-dark-shades-1: #171b1d;
   --color-dark-shades-2: #22282b;
@@ -149,11 +166,16 @@
   --color-dark-shades-6: #8e9ca2;
   --color-dark-background: #13151a;
   /* Font */
-  --font-playfair: var(--font-playfair);
   --font-poppins: var(--font-poppins);
   --font-seriftext: var(--font-seriftext);
   --font-editorialItalic: var(--font-editorialItalic);
   --font-editorialRegular: var(--font-editorialRegular);
+  --font-ivyPrestoLight: var(--font-ivyPrestoLight);
+  --font-jakarta: var(--font-jakarta);
+  --font-inter: var(--font-inter);
+  --font-manrope: var(--font-manrope);
+  /* Utility */
+  --color-error: #d33d3d;
 }
 
 @keyframes spin {

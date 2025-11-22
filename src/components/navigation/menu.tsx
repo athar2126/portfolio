@@ -67,10 +67,10 @@ export default function Menu({ closeMenu }: { closeMenu: () => void }) {
         <div className="grid px-8 text-white">
           <ul className="leading-none">
             <motion.li initial="initial" whileHover="hovered" className="overflow-hidden w-fit">
-              <motion.div variants={navLink} initial="hidden" animate="show" exit="exit" className="py-2">
-                <RevealLinks href="#">About</RevealLinks>
+              <motion.div onClick={closeMenu} variants={navLink} initial="hidden" animate="show" exit="exit" className="py-2">
+                <RevealLinks href="/about">About</RevealLinks>
               </motion.div>
-              <MotionImg src="/img/pfp.jpg" width={100} height={100} className="absolute top-1/2 left-1/2" alt="test"
+              <MotionImg src="/img/pfp.jpg" width={100} height={100} className="absolute top-1/2 left-1/2 pointer-events-none" alt="test"
                   variants={{
                       initial: {
                           opacity: 0,
@@ -84,10 +84,10 @@ export default function Menu({ closeMenu }: { closeMenu: () => void }) {
             </motion.li>
 
             <motion.li initial="initial" whileHover="hovered" className="overflow-hidden w-fit">
-              <motion.div variants={navLink} initial="hidden" animate="show" exit="exit" className="py-2">
-                <RevealLinks href="#">Projects</RevealLinks>         
+              <motion.div onClick={closeMenu} variants={navLink} initial="hidden" animate="show" exit="exit" className="py-2">
+                <RevealLinks href="/projects">Projects</RevealLinks>         
               </motion.div>
-              <MotionImg src="/img/pfp.jpg" width={100} height={100} className="absolute top-1/2 left-1/2" alt="test"
+              <MotionImg src="/img/pfp.jpg" width={100} height={100} className="absolute top-1/2 left-1/2 pointer-events-none" alt="test"
                   variants={{
                       initial: {
                           opacity: 0,
@@ -101,10 +101,10 @@ export default function Menu({ closeMenu }: { closeMenu: () => void }) {
             </motion.li>
 
             <motion.li initial="initial" whileHover="hovered" className="overflow-hidden w-fit">
-              <motion.div variants={navLink} initial="hidden" animate="show" exit="exit" className="py-2">
-                <a href="/certificate">Certificate</a>
+              <motion.div onClick={closeMenu} variants={navLink} initial="hidden" animate="show" exit="exit" className="py-2">
+                <RevealLinks href="/certificate">Certificate</RevealLinks>
               </motion.div>
-              <MotionImg src="/img/pfp.jpg" width={100} height={100} className="absolute top-1/2 left-1/2" alt="test"
+              <MotionImg src="/img/belajar-dasar-ai.jpg" width={600} height={500} quality={50} className="absolute top-0 left-1/2 pointer-events-none" alt="test"
                   variants={{
                       initial: {
                           opacity: 0,
@@ -118,10 +118,10 @@ export default function Menu({ closeMenu }: { closeMenu: () => void }) {
             </motion.li>
 
             <motion.li initial="initial" whileHover="hovered" className="overflow-hidden w-fit">
-              <motion.div variants={navLink} initial="hidden" animate="show" exit="exit" className="py-2">
-                <RevealLinks href="#">Changelog</RevealLinks>
+              <motion.div onClick={closeMenu} variants={navLink} initial="hidden" animate="show" exit="exit" className="py-2">
+                <RevealLinks href="/changelog">Changelog</RevealLinks>
               </motion.div>
-              <MotionImg src="/img/pfp.jpg" width={100} height={100} className="absolute top-1/2 left-1/2" alt="test"
+              <MotionImg src="/img/pfp.jpg" width={100} height={100} className="absolute top-1/2 left-1/2 pointer-events-none" alt="test"
                   variants={{
                       initial: {
                           opacity: 0,
@@ -135,10 +135,10 @@ export default function Menu({ closeMenu }: { closeMenu: () => void }) {
             </motion.li>
 
             <motion.li initial="initial" whileHover="hovered" className="overflow-hidden w-fit">
-              <motion.div variants={navLink} initial="hidden" animate="show" exit="exit" className="py-2">
-                <RevealLinks href="#">Blog</RevealLinks>
+              <motion.div onClick={closeMenu} variants={navLink} initial="hidden" animate="show" exit="exit" className="py-2">
+                <RevealLinks href="/blog">Blog</RevealLinks>
               </motion.div>
-              <MotionImg src="/img/pfp.jpg" width={100} height={100} className="absolute top-1/2 left-1/2" alt="test"
+              <MotionImg src="/img/pfp.jpg" width={100} height={100} className="absolute top-1/2 left-1/2 pointer-events-none" alt="test"
                   variants={{
                       initial: {
                           opacity: 0,

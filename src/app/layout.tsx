@@ -1,22 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/sosmed";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { playfair, poppins, seriftext, editorialItalic, editorialRegular } from "@/components/font/fonts";
+import { poppins, seriftext, editorialItalic, editorialRegular, ivyPrestoLight, jakarta, inter, manrope } from "@/components/font/fonts";
 import Header from '@/components/header';
 import PageTransition from "@/components/pagetransition/PageTransition";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,10 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${poppins.variable} ${seriftext.variable} ${editorialItalic.variable} ${editorialRegular.variable} antialiased`}>
+      <body className={`hide-scrollbar ${poppins.variable} ${seriftext.variable} ${editorialItalic.variable} ${editorialRegular.variable} ${ivyPrestoLight.variable} ${jakarta.variable} ${inter.variable} ${manrope.variable} antialiased`}>
         <PageTransition>
           <ThemeProvider attribute="class" defaultTheme="light">
             <TooltipProvider delayDuration={0}>
+              <Header />
               {children}
               <Navbar />
             </TooltipProvider>

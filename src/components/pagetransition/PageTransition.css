@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100svh;
+    height: 100vh;
     display: flex;
     pointer-events: none;
     z-index: 999;
@@ -12,7 +12,7 @@
 .kotak {
     flex: 1;
     height: 100%;
-    background-color: #222;
+    background-color: #fff;
     transform: scaleX(0);
     transform-origin: left;
 }
@@ -22,12 +22,12 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100svh;
+    height: 100vh;
     z-index: 999;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #222;
+    background-color: #fff;
     pointer-events: none;
     opacity: 0;
 }
